@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var removeOuterParentheses = function (s) {
+var removeOuterParentheses1 = function (s) {
   let stck = [];
   let output = "";
   let str = "";
@@ -31,10 +31,9 @@ var removeOuterParentheses = function (s) {
  * @param {string} s
  * @return {string}
  */
-var removeOuterParentheses = function (s) {
+var removeOuterParentheses2 = function (s) {
   let stck = [];
   let output = "";
-  //   let str = "";
 
   for (i = 0; i < s.length; i++) {
     if (stck[stck.length - 1] === "(" && s[i] === ")") {
@@ -45,6 +44,33 @@ var removeOuterParentheses = function (s) {
     } else {
       stck.push(s[i]);
       if (stck.length > 1) {
+        output += s[i];
+      }
+    }
+  }
+
+  return output;
+};
+
+// Approach 3 - solving it without stack
+// Using a level counter instead of stack to keep track of the nesting because we only want to ignore the first level nesting
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeOuterParentheses = function (s) {
+  let level = -1;
+  let output = "";
+
+  for (i = 0; i < s.length; i++) {
+    if (s[i] === ")") {
+      if (level > 0) {
+        output += s[i];
+      }
+      level--;
+    } else {
+      level++;
+      if (level > 0) {
         output += s[i];
       }
     }
