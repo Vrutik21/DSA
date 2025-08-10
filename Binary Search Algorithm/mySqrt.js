@@ -1,3 +1,4 @@
+// 69
 /**
  * @param {number} x
  * @return {number}

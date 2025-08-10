@@ -1,3 +1,4 @@
+// 374
 /**
  * Forward declaration of guess API.
  * @param {number} num   your guess
