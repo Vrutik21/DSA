@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number}
  */
-var peakIndexInMountainArray = function (arr) {
+var peakIndexInMountainArray2 = function (arr) {
   // My approach
   let left = 0;
   let right = arr.length - 1;
@@ -22,13 +22,12 @@ var peakIndexInMountainArray = function (arr) {
   return left;
 };
 
-
 /**
  * @param {number[]} arr
  * @return {number}
  */
 var peakIndexInMountainArray = function (arr) {
-// A more simple approach
+  // A more simple approach
   let left = 0;
   let right = nums.length - 1;
 
@@ -43,8 +42,7 @@ var peakIndexInMountainArray = function (arr) {
   }
 
   return right;
-
-}
+};
 console.log(peakIndexInMountainArray([18, 29, 38, 59, 98, 100, 99, 98, 90]));
 console.log(peakIndexInMountainArray([0, 1, 0]));
 console.log(peakIndexInMountainArray([0, 10, 5, 2]));
