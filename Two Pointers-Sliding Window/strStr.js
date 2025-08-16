@@ -1,9 +1,10 @@
+// 28
 /**
  * @param {string} haystack
  * @param {string} needle
  * @return {number}
  */
-var strStr = function (haystack, needle) {
+var strStr1 = function (haystack, needle) {
   // My approach
   // TC - O(n*m)
   let i = (j = 0);
@@ -29,7 +30,7 @@ var strStr = function (haystack, needle) {
  * @param {string} needle
  * @return {number}
  */
-var strStr = function (haystack, needle) {
+var strStr2 = function (haystack, needle) {
   // Akshay's approach
   //   TC - O(n*m)
   // SC - O(1)
@@ -47,6 +48,55 @@ var strStr = function (haystack, needle) {
 
     if (j === n) {
       return i;
+    }
+  }
+
+  return -1;
+};
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function (haystack, needle) {
+  let n = needle.length;
+  let i = 0;
+  let j = 1;
+  let LPS = [0];
+
+  while (j < n) {
+    if (needle[i] === needle[j]) {
+      LPS[j] = i + 1;
+      ++i;
+      ++j;
+    } else {
+      if (i === 0) {
+        LPS[j] = 0;
+        ++j;
+      } else {
+        i = LPS[i - 1];
+      }
+    }
+  }
+
+  i = j = 0;
+  let m = haystack.length;
+
+  while (i < m) {
+    if (haystack[i] === needle[j]) {
+      ++i;
+      ++j;
+    } else {
+      if (j === 0) {
+        ++i;
+      } else {
+        j = LPS[j - 1];
+      }
+    }
+
+    if (j === n) {
+      return i - n;
     }
   }
 
