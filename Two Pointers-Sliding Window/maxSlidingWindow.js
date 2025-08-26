@@ -5,6 +5,8 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
+  // TC - O(n)
+  // SC - O(k)
   let result = [];
   // Using a Monotonic decreasing dequeue
   let dq = [];
