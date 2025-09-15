@@ -10,6 +10,7 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+// Recursive method
 var postorderTraversal = function (root) {
   //   left -> right -> root
   let ans = [];

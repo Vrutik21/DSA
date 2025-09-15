@@ -11,7 +11,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function (root) {
+// Recursive method
+var inorderTraversal1 = function (root) {
   //   left -> root -> right
   let ans = [];
 
@@ -23,6 +24,30 @@ var inorderTraversal = function (root) {
   }
 
   traversal(root);
+
+  return ans;
+};
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+// Iterative method
+var inorderTraversal = function (root) {
+  //   left -> root -> right
+  let ans = [];
+  let stack = [];
+  let curr = root;
+
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+    curr = stack.pop();
+    ans.push(curr.val);
+    curr = curr.right;
+  }
 
   return ans;
 };
