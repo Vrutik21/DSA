@@ -59,3 +59,34 @@ var postorderTraversal = function (root) {
 
   return ans;
 };
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+// Iterative method
+// Using one stack
+var postorderTraversal = function (root) {
+  //   left -> right -> root
+  let stack = []
+  let ans = []
+  let curr = root
+  let lastVisited = root
+
+  while(curr || stack.length){
+    while(curr){
+      stack.push(curr)
+      curr = curr.left
+    }
+
+    let peek = stack[stack.length - 1]
+
+    if(peek.right && lastVisited !== peek.right){
+      curr = peek.right
+    }else{
+      ans.push(peek.val)
+      lastVisited = stack.pop()
+    }
+  }
+
+};
