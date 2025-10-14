@@ -34,7 +34,7 @@ var merge = function (nums1, m, nums2, n) {
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge2 = function (nums1, m, nums2, n) {
-  // Solution 2 - doing it in place with the help of pointers for both orignal array and going from backwards and checking if the element is greater than replace the element
+  // Solution 2 - doing it in place with the help of pointers for both original array and going from backwards and checking if the element is greater than replace the element
   let p1 = m - 1;
   let p2 = n - 1;
 
