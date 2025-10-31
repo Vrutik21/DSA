@@ -14,7 +14,7 @@ var longestPalindrome1 = function (s) {
 
   const isPalindrome = (str) => {
     let l = 0,
-      r = str.length - 1;
+    r = str.length - 1;
     while (l < r) {
       if (str[l] !== str[r]) return false;
       l++;
