@@ -1,8 +1,12 @@
+// 14. Longest Common Prefix
+
 /**
  * @param {string[]} strs
  * @return {string}
  */
-var longestCommonPrefix = function(strs) {
+// TC - O(n)
+// SC - (1)
+var longestCommonPrefix = function (strs) {
   if (strs.length === 0) return "";
 
   let prfx = strs[0];
