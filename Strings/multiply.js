@@ -1,4 +1,5 @@
 // 43. Multiply Strings
+// Math and string
 
 /**
  * @param {string} num1
