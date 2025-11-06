@@ -1,8 +1,12 @@
+// 49. Group Anagrams
+
 /**
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function (strs) {
+// TC - O(n * klogk)
+// SC - O(n * k)
+var groupAnagrams1 = function (strs) {
   // Approach 1 - Sorting and storing inside map
   const store = new Map();
 
@@ -22,7 +26,9 @@ var groupAnagrams = function (strs) {
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams2 = function (strs) {
+// TC - O(n * k)
+// SC - O(n * k)
+var groupAnagrams = function (strs) {
   const store = new Map();
 
   for (let i = 0; i < strs.length; i++) {
