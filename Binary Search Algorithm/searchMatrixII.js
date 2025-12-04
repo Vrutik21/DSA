@@ -7,7 +7,7 @@
  */
 // TC - O(m logn)
 // SC - O(1)
-var searchMatrix = function (matrix, target) {
+var searchMatrix1 = function (matrix, target) {
   let rows = matrix.length;
   let cols = matrix[0].length;
 
@@ -26,6 +26,39 @@ var searchMatrix = function (matrix, target) {
       if (matrix[i][mid] === target) return true;
       if (matrix[i][mid] < target) l = mid + 1;
       else r = mid - 1;
+    }
+  }
+
+  return false;
+};
+
+// Think of the 2D matrix like this diagram:
+// column index → → → →
+// row index ↓
+// ↓
+// ↓
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+// TC - O(m + n)
+// SC - O(1)
+var searchMatrix = function (matrix, target) {
+  let rows = matrix.length;
+  let cols = matrix[0].length;
+
+  //   First row right most column value
+  let rowIndex = 0;
+  let colIndex = cols - 1; // top-right
+
+  while (rowIndex < rows && colIndex >= 0) {
+    if (matrix[rowIndex][colIndex] === target) return true;
+
+    if (matrix[rowIndex][colIndex] > target) {
+      colIndex--; // move one col left if the value is smaller
+    } else {
+      rowIndex++; // move one row down if the value is bigger
     }
   }
 
