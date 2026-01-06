@@ -6,6 +6,7 @@
  */
 // TC - O(n)
 // SC - O(n)
+// Stack
 var simplifyPath = function (path) {
   const parts = path.split("/");
 
