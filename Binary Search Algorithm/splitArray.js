@@ -9,6 +9,7 @@
  * @param {number} k
  * @return {number}
  */
+// Same as the shipWithinDays problem
 var splitArray = function (nums, k) {
   let low = Math.max(...nums); // minimum possible sum
   let high = nums.reduce((a, b) => a + b, 0); // maximum sum
