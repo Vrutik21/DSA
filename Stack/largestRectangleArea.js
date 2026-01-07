@@ -46,7 +46,7 @@ var largestRectangleArea = function (heights) {
       const topIndex = stack.pop();
       const height = heights[topIndex];
 
-      //   After popping, stack top is the index of the previous smaller bar
+      // After popping, stack top is the index of the previous smaller bar
       const leftSmallerIndex =
         stack.length === 0 ? -1 : stack[stack.length - 1];
 
