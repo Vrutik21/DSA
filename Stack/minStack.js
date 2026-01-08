@@ -1,3 +1,7 @@
+// 155. Min Stack
+
+// Each function has TC of O(1)
+// SC - O(n)
 var MinStack = function () {
   this.stck = [];
 };
