@@ -1,3 +1,5 @@
+// 150. Evaluate Reverse Polish Notation
+
 /**
  * @param {string[]} tokens
  * @return {number}
@@ -37,7 +39,7 @@ var evalRPN1 = function (tokens) {
  * @param {string[]} tokens
  * @return {number}
  */
-var evalRPN = function (tokens) {
+var evalRPN2 = function (tokens) {
   let stack = [];
 
   //   using a map to store the operator logic
@@ -65,6 +67,35 @@ var evalRPN = function (tokens) {
   }
 
   return Number(stack.pop());
+};
+
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ */
+// TC - O(n)
+// SC - O(n)
+var evalRPN = function (tokens) {
+  let stack = [];
+
+  for (const token of tokens) {
+    if (token === "+" || token === "-" || token === "*" || token === "/") {
+      let a = stack.pop();
+      let b = stack.pop();
+
+      let val;
+      if (token === "+") val = b + a;
+      else if (token === "-") val = b - a;
+      else if (token === "*") val = b * a;
+      else val = Math.trunc(b / a);
+
+      stack.push(val);
+    } else {
+      stack.push(Number(token));
+    }
+  }
+
+  return stack.pop();
 };
 
 console.log(evalRPN(["2", "1", "+", "3", "*"]));
