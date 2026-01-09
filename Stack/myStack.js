@@ -1,3 +1,7 @@
+// 225. Implement Stack using Queues
+
+// Using two Queues
+// SC - O(n)
 var MyStack = function () {
   this.q1 = [];
   this.q2 = [];
@@ -14,6 +18,7 @@ MyStack.prototype.push = function (x) {
 /**
  * @return {number}
  */
+// TC - O(n)
 MyStack.prototype.pop = function () {
   let n = this.q1.length;
 
@@ -34,6 +39,7 @@ MyStack.prototype.pop = function () {
 /**
  * @return {number}
  */
+// TC - O(n)
 MyStack.prototype.top = function () {
   let n = this.q1.length;
 
@@ -62,6 +68,7 @@ MyStack.prototype.empty = function () {
 
 // Approach 2
 // Using only one queue
+// SC - O(n)
 var MyStack = function () {
   this.q1 = [];
 };
@@ -77,6 +84,7 @@ MyStack.prototype.push = function (x) {
 /**
  * @return {number}
  */
+// TC - O(n)
 MyStack.prototype.pop = function () {
   let n = this.q1.length;
 
@@ -93,6 +101,7 @@ MyStack.prototype.pop = function () {
 /**
  * @return {number}
  */
+// TC - O(n)
 MyStack.prototype.top = function () {
   let n = this.q1.length;
 
