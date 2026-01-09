@@ -1,3 +1,8 @@
+// 232. Implement Queue using Stacks
+
+// TC - O(1)ForPush,O(N)ForPopAndPeekInTheWorstCase,O(1)AmortizedForPopAndPeek
+// SC - O(n)
+
 var MyQueue = function () {
   this.s1 = [];
   this.s2 = [];
