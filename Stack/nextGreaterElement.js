@@ -1,3 +1,5 @@
+// 496. Next Greater Element I
+
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2
@@ -40,9 +42,9 @@ var nextGreaterElement1 = function (nums1, nums2) {
  * @param {number[]} nums2
  * @return {number[]}
  */
+// TC - O(n+m)
+// SC - O(n)
 var nextGreaterElement = function (nums1, nums2) {
-  // TC - O(n+m)\
-  // SC - O(n)
   const store = {};
   const stack = [];
 
