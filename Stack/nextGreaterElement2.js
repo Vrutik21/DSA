@@ -1,11 +1,13 @@
+// 503. Next Greater Element II
+
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
+// My approach
+// TC - O(n)
+// SC - O(n)
 var nextGreaterElements = function (nums) {
-  // My approach
-  // TC - O(n)
-  // SC - O(n)
   let circularNums = [...nums, ...nums];
   let n = circularNums.length;
   const ans = Array(n).fill(-1);
@@ -34,26 +36,27 @@ var nextGreaterElements = function (nums) {
  * @param {number[]} nums
  * @return {number[]}
  */
+// TC - O(n)
+// SC - O(n)
 var nextGreaterElements = function (nums) {
   // Akshay's appraoch using a mod to reuse the index after we reach the end of the array
-  let n = nums.length;
-  const ans = Array(n).fill(-1);
-  const stack = [];
+  const n = nums.length;
+  const ans = new Array(n).fill(-1);
+  const stack = []; // will store values
 
-  for (let i = (2*n) - 1; i >= 0; i--) {
-    const curr = circularNums[i % n];
+  for (let i = 2 * (n - 1); i >= 0; i--) {
+    const curr = nums[i % n];
 
-    // Pop elements from the stack that are smaller or equal to current
-    while (stack.length > 0 && stack[stack.length - 1] <= curr) {
+    while (stack.length && stack[stack.length - 1] <= curr) {
       stack.pop();
     }
 
-    // If stack is empty, no greater element
-    ans[i % n] = stack.length === 0 ? -1 : stack[stack.length - 1];
+    if (i < n) {
+      ans[i] = stack.length ? stack[stack.length - 1] : -1;
+    }
 
-    // Push current element onto stack
     stack.push(curr);
   }
 
-  return ans
-}
+  return ans;
+};
