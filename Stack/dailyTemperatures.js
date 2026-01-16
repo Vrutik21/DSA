@@ -1,3 +1,5 @@
+// 739. Daily Temperatures
+
 /**
  * @param {number[]} temperatures
  * @return {number[]}
@@ -28,6 +30,8 @@ var dailyTemperatures1 = function (temperatures) {
  * @param {number[]} temperatures
  * @return {number[]}
  */
+// TC - O(n)
+// SC - O(n)
 var dailyTemperatures = function (temperatures) {
   // cleaner code but same TC and SC
   let n = temperatures.length;
