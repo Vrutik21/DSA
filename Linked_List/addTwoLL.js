@@ -1,3 +1,5 @@
+// 2. Add Two Numbers
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -10,6 +12,8 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+// TC - O(max(m, n))
+// SC - O(max(m, n))
 var addTwoNumbers = function (l1, l2) {
   let carry = 0;
   let newNode = new ListNode();
