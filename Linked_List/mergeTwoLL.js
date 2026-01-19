@@ -1,3 +1,5 @@
+// 21. Merge Two Sorted Lists
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -10,6 +12,8 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
+// TC - O(L1 + L2)
+// SC - O(1)
 var mergeTwoLists = function (list1, list2) {
   let sentinel = new ListNode();
   let prev = sentinel;
