@@ -1,3 +1,5 @@
+// 24. Swap Nodes in Pairs
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -9,6 +11,8 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+// TC - O(L)
+// SC - O(1)
 // Iterative solution
 var swapPairs = function (head) {
   if (!head || !head.next) return head;
@@ -32,7 +36,6 @@ var swapPairs = function (head) {
   return sentinel.next;
 };
 
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -46,20 +49,13 @@ var swapPairs = function (head) {
  */
 // Recursive solution
 var swapPairs = function (head) {
-    if (!head || !head.next) return head;
-    
-let left = head
-let right = head.next;
+  if (!head || !head.next) return head;
 
-left.next = swapPairs(right.next)
-right.next = left
+  let left = head;
+  let right = head.next;
 
-return right
+  left.next = swapPairs(right.next);
+  right.next = left;
+
+  return right;
 };
-
-
-
-
-
-
-
