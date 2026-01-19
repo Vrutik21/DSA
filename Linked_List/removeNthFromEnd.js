@@ -1,3 +1,5 @@
+// 19. Remove Nth Node From End of List
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -10,6 +12,8 @@
  * @param {number} n
  * @return {ListNode}
  */
+// TC - O(L) // L = number of nodes in the linked list
+// SC - O(1)
 var removeNthFromEnd = function (head, n) {
   // Solution 1 - Two pass
   let sentinel = new ListNode();
@@ -42,8 +46,11 @@ var removeNthFromEnd = function (head, n) {
  * @param {number} n
  * @return {ListNode}
  */
+// TC - O(L) // L = number of nodes in the linked list
+// SC - O(1)
 var removeNthFromEnd = function (head, n) {
   // Solution 2 - One pass
+  // Maintaining the gap bet slow and fast pointer is the key
   let sentinel = new ListNode();
   sentinel.next = head;
 
