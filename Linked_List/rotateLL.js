@@ -1,3 +1,5 @@
+// 61. Rotate List
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -10,6 +12,8 @@
  * @param {number} k
  * @return {ListNode}
  */
+// TC - O(L)
+// SC - O(1)
 var rotateRight = function (head, k) {
   if (!head || !head.next || k === 0) return head;
   let curr = head;
