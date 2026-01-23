@@ -1,3 +1,5 @@
+// 141. Linked List Cycle
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -11,6 +13,8 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+// TC - O(n)
+// SC - O(n)
 var hasCycle = function (head) {
   let uniqueNodes = new Set();
 
@@ -29,19 +33,16 @@ var hasCycle = function (head) {
  * @param {ListNode} head
  * @return {boolean}
  */
+// TC - O(n)
+// SC - O(1)
 var hasCycle = function (head) {
-  if (!head) return false;
-  let slow = head;
-  let fast = head.next;
+  let slow = (fast = head);
 
-  while (slow != fast) {
-    if (fast === null || fast.next === null) {
-      return false;
-    }
-
-    slow = slow.next;
+  while (fast && fast.next) {
     fast = fast.next.next;
+    slow = slow.next;
+    if (fast == slow) return true;
   }
 
-  return true;
+  return false;
 };
