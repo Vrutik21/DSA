@@ -1,3 +1,5 @@
+// 206. Reverse Linked List
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -9,15 +11,16 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+// TC - O(n)
+// SC - O(1)
 var reverseList = function (head) {
-  prev = null;
-  curr = head;
+  let prev = null;
 
-  while (curr) {
-    temp = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = temp;
+  while (head) {
+    let next = head.next;
+    head.next = prev;
+    prev = head;
+    head = next;
   }
 
   return prev;
