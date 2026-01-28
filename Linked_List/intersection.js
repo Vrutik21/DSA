@@ -1,4 +1,5 @@
-// 160
+// 160. Intersection of Two Linked Lists
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -93,6 +94,8 @@ var getIntersectionNode2 = function (headA, headB) {
  * @param {ListNode} headB
  * @return {ListNode}
  */
+// TC - O(m + n)
+// SC - O(1)
 var getIntersectionNode = function (headA, headB) {
   let pA = headA;
   let pB = headB;
