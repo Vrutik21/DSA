@@ -1,3 +1,5 @@
+// 234. Palindrome Linked List
+
 class ListNode {
   constructor(val, next) {
     this.val = val === undefined ? 0 : val;
@@ -34,19 +36,25 @@ var isPalindrome = function (head) {
  * @param {ListNode} head
  * @return {boolean}
  */
+// TC - O(n)
+// SC - O(1)
 var isPalindrome = function (head) {
-  let slow = (fast = head);
+  if (!head || !head.next) return true;
+
+  let slow = head,
+    fast = head;
 
   while (fast && fast.next) {
     slow = slow.next;
     fast = fast.next.next;
   }
 
+  // Reverse from slow
   let prev = null;
   let curr = slow;
 
   while (curr) {
-    temp = curr.next;
+    let temp = curr.next;
     curr.next = prev;
     prev = curr;
     curr = temp;
@@ -55,10 +63,8 @@ var isPalindrome = function (head) {
   let firstHalf = head;
   let secondHalf = prev;
 
-  // Because only second Half will have a null at the end
   while (secondHalf) {
     if (firstHalf.val !== secondHalf.val) return false;
-
     firstHalf = firstHalf.next;
     secondHalf = secondHalf.next;
   }
