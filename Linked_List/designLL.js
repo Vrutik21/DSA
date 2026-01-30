@@ -1,3 +1,7 @@
+// 707. Design Linked List
+
+// TC - O(n)
+// SC - O(1)
 var MyLinkedList = function () {
   this.head = null;
   this.size = 0;
