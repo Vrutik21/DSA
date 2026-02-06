@@ -46,7 +46,7 @@ LRUCache.prototype._addToFront = function (node) {
   firstRealNode.prev = node;
 };
 
-// Move a node to the front
+// Accessed or updated node becomes most recent
 LRUCache.prototype._moveToFront = function (node) {
   this._removeNode(node);
   this._addToFront(node);
