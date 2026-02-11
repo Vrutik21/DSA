@@ -1,4 +1,4 @@
-// 94
+// 94. Binary Tree Inorder Traversal
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -12,6 +12,8 @@
  * @return {number[]}
  */
 // Recursive method
+// TC - O(n)
+// SC - O(n)
 var inorderTraversal1 = function (root) {
   //   left -> root -> right
   let ans = [];
@@ -33,6 +35,8 @@ var inorderTraversal1 = function (root) {
  * @return {number[]}
  */
 // Iterative method
+// TC - O(n)
+// SC - O(n)
 var inorderTraversal = function (root) {
   //   left -> root -> right
   let ans = [];
