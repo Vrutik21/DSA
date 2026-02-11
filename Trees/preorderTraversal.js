@@ -1,4 +1,5 @@
-// 144
+// 144 Binary Tree Preorder Traversal
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -12,6 +13,8 @@
  * @return {number[]}
  */
 // Recursive method
+// TC - O(n)
+// SC - O(n)
 var preorderTraversal1 = function (root) {
   // root -> left -> right
   let ans = [];
@@ -42,6 +45,8 @@ var preorderTraversal1 = function (root) {
  * @return {number[]}
  */
 // Iterative method
+// TC - O(n)
+// SC - O(n)
 var preorderTraversal = function (root) {
   // root -> left -> right
   if (!root) return [];
