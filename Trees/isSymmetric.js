@@ -1,4 +1,4 @@
-// 101
+// 101 Symmetric Tree
 
 /**
  * Definition for a binary tree node.
@@ -13,6 +13,8 @@
  * @return {boolean}
  */
 // My recursive solution
+// TC - O(n)
+// SC - O(n)
 var isSymmetric1 = function (root) {
   function isMirror(left, right) {
     if (!left && !right) return true; // both null
@@ -26,6 +28,8 @@ var isSymmetric1 = function (root) {
 };
 
 // Iterative solution
+// TC - O(n)
+// SC - O(n)
 var isSymmetric = function (root) {
   let queue = [root.left, root.right];
 
