@@ -1,4 +1,5 @@
-// 102
+// 102 Level Order Traversal
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -13,6 +14,8 @@
  */
 // Iterative way
 // My way
+// TC - O(n)
+// SC - O(n)
 var levelOrder1 = function (root) {
   if (!root) return [];
 
@@ -40,6 +43,8 @@ var levelOrder1 = function (root) {
  */
 // Iterative way
 // Akshay's way
+// TC - O(n)
+// SC - O(n)
 var levelOrder2 = function (root) {
   if (!root) return [];
 
@@ -50,6 +55,7 @@ var levelOrder2 = function (root) {
     let levelArr = [];
     let levelSize = queue.length;
 
+    console.log(queue, "queue");
     for (let i = 0; i < levelSize; i++) {
       let curr = queue.shift();
 
@@ -70,6 +76,8 @@ var levelOrder2 = function (root) {
  * @return {number[][]}
  */
 // Recursive way
+// TC - O(n)
+// SC - O(n)
 var levelOrder = function (root) {
   if (!root) return [];
 
