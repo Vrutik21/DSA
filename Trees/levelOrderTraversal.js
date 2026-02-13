@@ -55,7 +55,6 @@ var levelOrder2 = function (root) {
     let levelArr = [];
     let levelSize = queue.length;
 
-    console.log(queue, "queue");
     for (let i = 0; i < levelSize; i++) {
       let curr = queue.shift();
 

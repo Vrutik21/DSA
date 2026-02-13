@@ -1,4 +1,4 @@
-// 104
+// 104 Maximum Depth of Binary Tree
 
 /**
  * Definition for a binary tree node.
@@ -13,10 +13,14 @@
  * @return {number}
  */
 // Top down approach
+// TC - O(n)
+// SC - O(n)
 var maxDepth1 = function (root) {
   let maxDepth = 0;
 
   function traversal(curr, depth) {
+    if (!curr) return;
+
     maxDepth = Math.max(maxDepth, depth);
 
     curr.left && traversal(curr.left, depth + 1);
@@ -24,6 +28,8 @@ var maxDepth1 = function (root) {
   }
 
   traversal(root, 1);
+
+  return maxDepth;
 };
 
 /**
@@ -39,6 +45,8 @@ var maxDepth1 = function (root) {
  * @return {number}
  */
 // Bottom up approach
+// TC - O(n)
+// SC - O(n)
 var maxDepth = function (root) {
   if (!root) return 0;
 
