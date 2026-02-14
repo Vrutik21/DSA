@@ -1,4 +1,4 @@
-// 112
+// 112. Path Sum
 
 /**
  * Definition for a binary tree node.
@@ -16,20 +16,21 @@
 // My approach
 var hasPathSum1 = function (root, targetSum) {
   if (!root) return false;
+  let ans = false;
 
-  function traversal(root, currSum) {
-    if (!root.left && !root.right) {
-      if (currSum === targetSum) return true;
+  function traversal(curr, sum) {
+    if (curr.val + sum === targetSum && !curr.left && !curr.right) {
+      ans = true;
+      return;
     }
 
-    if (root.left && traversal(root.left, currSum + root.left.val)) return true;
-    if (root.right && traversal(root.right, currSum + root.right.val))
-      return true;
-
-    return false;
+    curr.left && traversal(curr.left, curr.val + sum);
+    curr.right && traversal(curr.right, curr.val + sum);
   }
 
-  return traversal(root, root.val);
+  traversal(root, 0);
+
+  return ans;
 };
 
 /**
@@ -59,13 +60,16 @@ var hasPathSum2 = function (root, targetSum) {
   );
 };
 
-// ChatGPT code
+// more clean code
 var hasPathSum = function (root, targetSum) {
-  function dfs(node, remain) {
-    if (!node) return false;
-    if (!node.left && !node.right) return remain === node.val;
-    const next = remain - node.val;
-    return dfs(node.left, next) || dfs(node.right, next);
+  if (!root) return false;
+
+  // If it's a leaf, check if the remaining sum equals this node's value
+  if (!root.left && !root.right) {
+    return root.val === targetSum;
   }
-  return dfs(root, targetSum);
+
+  const remaining = targetSum - root.val;
+
+  return hasPathSum(root.left, remaining) || hasPathSum(root.right, remaining);
 };
