@@ -12,6 +12,8 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
+// TC - O(n)
+// SC - O(n)
 var zigzagLevelOrder = function (root) {
   if (!root) return [];
 
