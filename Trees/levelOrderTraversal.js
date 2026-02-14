@@ -58,6 +58,7 @@ var levelOrder2 = function (root) {
     for (let i = 0; i < levelSize; i++) {
       let curr = queue.shift();
 
+      // BFS enqueue
       curr.left && queue.push(curr.left);
       curr.right && queue.push(curr.right);
 
