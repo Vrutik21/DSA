@@ -1,13 +1,4 @@
-// 116 Populating next right pointers in each node
-
-class _Node {
-  constructor(val, left, right, next) {
-    this.val = val === undefined ? null : val;
-    this.left = left === undefined ? null : left;
-    this.right = right === undefined ? null : right;
-    this.next = next === undefined ? null : next;
-  }
-}
+// 116. Populating Next Right Pointers in Each Node
 
 /**
  * // Definition for a _Node.
@@ -23,6 +14,40 @@ class _Node {
  * @param {_Node} root
  * @return {_Node}
  */
+// My approach using stack
+// TC - O(n)
+// SC - O(n)
+var connect = function (root) {
+  if (!root) return [];
+
+  root.next = null;
+  let stack = [root];
+
+  while (stack.length) {
+    let curr = stack.pop();
+
+    if (curr.left) {
+      curr.left.next = curr.right ? curr.right : null;
+    }
+
+    if (curr.right) {
+      curr.right.next = curr.next ? curr.next.left : null;
+    }
+
+    curr.left && stack.push(curr.left);
+    curr.right && stack.push(curr.right);
+  }
+
+  return root;
+};
+
+/**
+ * @param {_Node} root
+ * @return {_Node}
+ */
+// Optimal approach
+// TC - O(n)
+// SC - O(1)
 var connect = function (root) {
   if (!root) return root;
 
