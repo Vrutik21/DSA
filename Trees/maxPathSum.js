@@ -12,8 +12,10 @@
  * @param {TreeNode} root
  * @return {number}
  */
+// TC - O(n)
+// SC - O(n)
 var maxPathSum = function (root) {
-  let maxPathSum = -Infinity;
+  let best = -Infinity;
 
   function checkMax(curr) {
     if (!curr) return 0;
@@ -23,12 +25,12 @@ var maxPathSum = function (root) {
 
     let currMax = curr.val + Math.max(leftMax, rightMax);
 
-    maxPathSum = Math.max(maxPathSum, curr.val + leftMax + rightMax);
+    best = Math.max(best, curr.val + leftMax + rightMax);
 
     return currMax;
   }
 
   checkMax(root);
 
-  return maxPathSum;
+  return best;
 };
