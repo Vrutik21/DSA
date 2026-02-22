@@ -12,6 +12,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+// TC - O(n)
+// SC - O(n)
 // My solution using recursive level order traversal
 var rightSideView1 = function (root) {
   if (!root) return [];
@@ -19,12 +21,14 @@ var rightSideView1 = function (root) {
   let ans = [];
 
   function traversal(curr, level) {
-    // Treats 0 as null that's why added the second condition
-    if (!ans[level] && ans[level] !== 0) {
-      ans[level] = curr.val;
+    if (!curr) return;
+
+    if (ans.length === level) {
+      ans.push(curr.val);
     }
-    curr.right && traversal(curr.right, level + 1);
-    curr.left && traversal(curr.left, level + 1);
+
+    traversal(curr.right, level + 1);
+    traversal(curr.left, level + 1);
   }
 
   traversal(root, 0);
@@ -36,6 +40,8 @@ var rightSideView1 = function (root) {
  * @param {TreeNode} root
  * @return {number[]}
  */
+// TC - O(n)
+// SC - O(n)
 // Akshay's solution using iterative level order traversal
 var rightSideView = function (root) {
   if (!root) return [];
