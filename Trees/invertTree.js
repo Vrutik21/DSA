@@ -1,3 +1,5 @@
+// 226. Invert Binary Tree
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -10,6 +12,8 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
+// TC - O(n)
+// SC - O(n)
 var invertTree = function (root) {
   if (!root) return root;
 
