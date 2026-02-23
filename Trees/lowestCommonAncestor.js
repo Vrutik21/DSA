@@ -13,6 +13,8 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
+// TC - O(n)
+// SC - O(n)
 var lowestCommonAncestor = function (root, p, q) {
   let lca = null;
 
@@ -39,4 +41,40 @@ var lowestCommonAncestor = function (root, p, q) {
 
   traversal(root);
   return lca;
+};
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+// TC - O(n)
+// SC - O(n)
+var lowestCommonAncestor = function (root, p, q) {
+  function traversal(curr) {
+    if (!curr) return null;
+
+    if (curr.val === p.val || curr.val === q.val) {
+      return curr;
+    }
+
+    let left = traversal(curr.left);
+    let right = traversal(curr.right);
+
+    if (left && right) {
+      return curr;
+    }
+
+    return left ?? right;
+  }
+
+  return traversal(root);
 };
