@@ -48,8 +48,8 @@ var maxPathSum = function (root) {
 
     // Compute gains from left and right subtrees
     // If a gain is negative, ignore it (take 0 instead)
-    let leftMax = Math.max(0, checkMax(curr.left));
-    let rightMax = Math.max(0, checkMax(curr.right));
+    let leftGain = Math.max(0, checkMax(curr.left));
+    let rightGain = Math.max(0, checkMax(curr.right));
 
     // Best path sum that passes through current node and can use BOTH sides
     const pathThroughCurr = curr.val + leftGain + rightGain;
