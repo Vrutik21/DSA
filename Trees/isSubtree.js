@@ -67,6 +67,8 @@ var serializeTree = function (root) {
   }
 
   traversal(root);
+
+  return hash;
 };
 
 // function kmpContains(text, pattern) {
