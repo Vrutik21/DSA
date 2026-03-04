@@ -13,6 +13,8 @@
  * @param {number} val
  * @return {TreeNode}
  */
+// TC - O(n)
+// SC - O(n)
 var insertIntoBST = function (root, val) {
   if (!root) return new TreeNode(val);
 
