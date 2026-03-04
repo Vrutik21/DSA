@@ -12,6 +12,8 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+// TC - O(n)
+// SC - O(n)
 var isValidBST = function (root) {
   function checkBST(curr, low, high) {
     if (!curr) return true;
