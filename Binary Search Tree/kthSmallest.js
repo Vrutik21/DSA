@@ -13,19 +13,25 @@
  * @param {number} k
  * @return {number}
  */
+// TC - O(n)
+// SC - O(h)
 var kthSmallest = function (root, k) {
   let ans = null;
   let count = k;
 
-  //   left -> root -> right
+  // left -> root -> right
+  // Inorder is always comes out in sorted order for BST
   function traversal(curr) {
-    if (!curr || ans) return;
+    if (!curr || ans !== null) return;
 
     traversal(curr.left);
-    --count;
+
+    count--;
     if (count === 0) {
       ans = curr.val;
+      return;
     }
+
     traversal(curr.right);
   }
 
