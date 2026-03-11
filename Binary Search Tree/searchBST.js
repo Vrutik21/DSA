@@ -13,24 +13,27 @@
  * @param {number} val
  * @return {TreeNode}
  */
+// TC - O(h)
+// SC - O(h)
 var searchBST1 = function (root, val) {
   let ans = null;
 
-  function traveral(curr, val) {
+  function traversal(curr, val) {
     if (!curr) return;
 
     if (curr.val === val) {
       ans = curr;
+      return;
     }
 
     if (curr.val > val) {
-      traveral(curr.left, val);
+      traversal(curr.left, val);
     } else {
-      traveral(curr.right, val);
+      traversal(curr.right, val);
     }
   }
 
-  traveral(root, val);
+  traversal(root, val);
 
   return ans;
 };
@@ -41,6 +44,8 @@ var searchBST1 = function (root, val) {
  * @return {TreeNode}
  */
 // Less code and same logic
+// TC - O(h)
+// SC - O(h)
 var searchBST = function (root, val) {
   if (!root) return null;
 
