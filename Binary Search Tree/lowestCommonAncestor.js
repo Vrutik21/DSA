@@ -43,7 +43,8 @@ var lowestCommonAncestor1 = function (root, p, q) {
  * @return {TreeNode}
  */
 // Akshay's solution
-// TC - O(log n)
+// TC - O(h)
+// SC - O(h)
 // Bottom-up approach
 var lowestCommonAncestor = function (root, p, q) {
   if (p.val < root.val && q.val < root.val) {
