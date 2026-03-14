@@ -5,6 +5,8 @@
  * @param {number} target
  * @return {number[]}
  */
+// TC - O(n)
+// SC - O(n)
 var twoSum = function (nums, target) {
   let store = new Map();
 
