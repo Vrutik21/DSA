@@ -27,7 +27,7 @@ var topKFrequent1 = function (nums, k) {
   store.forEach((value, key) => {
     freqStore.set(
       value,
-      freqStore.get(value).length > 0 ? [...freqStore.get(value), key] : [key]
+      freqStore.get(value).length > 0 ? [...freqStore.get(value), key] : [key],
     );
   });
 
@@ -56,9 +56,7 @@ var topKFrequent = function (nums, k) {
   }
 
   // Buckets: index = frequency
-  const buckets = Array(nums.length + 1)
-    .fill(0)
-    .map(() => []);
+  const buckets = new Array(nums.length + 1).fill(0).map(() => []);
 
   for (let [num, freq] of freqMap) {
     buckets[freq].push(num);
