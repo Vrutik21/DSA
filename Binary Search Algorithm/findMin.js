@@ -14,17 +14,15 @@ var findMin = function (nums) {
     let mid = left + Math.floor((right - left) / 2);
 
     // If mid element is greater than right element,
-    // minimum is in the right half.
+    // so the minimum must be to the right of mid
     if (nums[mid] > nums[right]) {
       left = mid + 1;
     } else {
-      // minimum is in the left half (including mid)
+      // Mid can still be the minimum,
+      // so we keep mid in the search space
       right = mid;
     }
   }
 
   return nums[left];
 };
-
-// Edge case
-// [5, 1, 2, 3, 4]
