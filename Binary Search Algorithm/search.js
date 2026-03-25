@@ -6,7 +6,7 @@
  * @return {number}
  */
 // TC - O(log n)
-// SC - O(!)
+// SC - O(1)
 var search = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
