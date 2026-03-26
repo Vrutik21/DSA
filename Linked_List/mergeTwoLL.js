@@ -12,7 +12,7 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
-// TC - O(L1 + L2)
+// TC - O(N + M)
 // SC - O(1)
 var mergeTwoLists = function (list1, list2) {
   let sentinel = new ListNode();

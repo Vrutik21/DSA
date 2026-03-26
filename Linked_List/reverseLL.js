@@ -13,40 +13,38 @@
  */
 // TC - O(n)
 // SC - O(1)
+// Iterative solution
 var reverseList = function (head) {
   let prev = null;
 
   while (head) {
     let next = head.next;
+
     head.next = prev;
     prev = head;
+
     head = next;
   }
 
   return prev;
 };
 
-class ListNode {
-  constructor(val, next) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+// TC - O(n)
+// SC - O(n)
+// Recursive solution
+var reverseList = function (head) {
+  if (head === null || head.next === null) {
+    return head;
   }
-}
 
-const list = {
-  head: {
-    val: 6,
-    next: {
-      val: 10,
-      next: {
-        val: 12,
-        next: {
-          val: 3,
-          next: null,
-        },
-      },
-    },
-  },
+  let newHead = reverseList(head.next);
+
+  head.next.next = head;
+  head.next = null;
+
+  return newHead;
 };
-
-console.log(reverseList(list.head));
