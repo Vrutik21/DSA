@@ -22,7 +22,7 @@ var detectCycle = function (head) {
   while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
-    if (fast == slow) {
+    if (fast === slow) {
       let entry = head;
 
       // find cycle start
