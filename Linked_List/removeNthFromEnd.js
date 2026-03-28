@@ -14,7 +14,7 @@
  */
 // TC - O(L) // L = number of nodes in the linked list
 // SC - O(1)
-var removeNthFromEnd = function (head, n) {
+var removeNthFromEnd1 = function (head, n) {
   // Solution 1 - Two pass
   let sentinel = new ListNode();
   sentinel.next = head;
@@ -48,7 +48,7 @@ var removeNthFromEnd = function (head, n) {
  */
 // TC - O(L) // L = number of nodes in the linked list
 // SC - O(1)
-var removeNthFromEnd = function (head, n) {
+var removeNthFromEnd2 = function (head, n) {
   // Solution 2 - One pass
   // Maintaining the gap bet slow and fast pointer is the key
   let sentinel = new ListNode();
@@ -72,4 +72,34 @@ var removeNthFromEnd = function (head, n) {
   slow.next = slow.next.next;
 
   return sentinel.next;
+};
+
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+// Without using the dummy node
+// TC - O(L) // L = number of nodes in the linked list
+// SC - O(1)
+var removeNthFromEnd = function (head, n) {
+  let slow = head;
+  let fast = head;
+
+  //   moving the fast pointer ahead by n
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
+  }
+
+  // If fast is null, remove the head
+  if (!fast) return head.next;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  slow.next = slow.next.next;
+
+  return head;
 };
