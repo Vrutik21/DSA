@@ -56,39 +56,31 @@ var mergeKLists = function (lists) {
   return sentinel.next;
 };
 
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-// Divide & Conquer non-recursive approach
-// TC - O(N * logk)
-// SC - O(1)
+// Iterative Divide & Conquer approach
+// TC - O(N log k), where N is total number of nodes
+// SC - O(1) extra space
 var mergeKLists = function (lists) {
   if (!lists || lists.length === 0) return null;
 
-  // Interval represents how far apart lists are merged
   let interval = 1;
 
-  // Keep merging until only one list remains
+  // Keep increasing the group size: 1, 2, 4, 8...
   while (interval < lists.length) {
+    // Merge pairs: (0,1), (2,3), (4,5) for interval = 1
+    // Then (0,2), (4,6) for interval = 2, and so on
     for (let i = 0; i + interval < lists.length; i += interval * 2) {
       lists[i] = mergeTwoLL(lists[i], lists[i + interval]);
     }
 
-    interval *= 2; // Double the merge range
+    interval *= 2;
   }
 
-  // The fully merged list is stored at index 0
   return lists[0];
 };
 
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-// Divide & Conquer recursive approach
-// TC - O(N * logk)
-// SC - O(log k) recursion call stack
+// Divide & Conquer recursive approach, and it works like merge sort
+// TC - O(N log k), where N is total number of nodes
+// SC - O(log k) for recursion stack
 var mergeKLists = function (lists) {
   if (!lists || lists.length === 0) return null;
 
@@ -111,6 +103,7 @@ function mergeTwoLL(list1, list2) {
   let sentinel = new ListNode();
   let prev = sentinel;
 
+  // Merge both lists in sorted order
   while (list1 && list2) {
     if (list1.val <= list2.val) {
       prev.next = list1;
@@ -122,6 +115,7 @@ function mergeTwoLL(list1, list2) {
     prev = prev.next;
   }
 
+  // Attach the remaining part of the non-empty list
   prev.next = list1 || list2;
 
   return sentinel.next;
