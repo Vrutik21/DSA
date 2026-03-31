@@ -46,7 +46,7 @@ var lowestCommonAncestor1 = function (root, p, q) {
 // TC - O(h)
 // SC - O(h)
 // Bottom-up approach
-var lowestCommonAncestor = function (root, p, q) {
+var lowestCommonAncestor2 = function (root, p, q) {
   if (p.val < root.val && q.val < root.val) {
     return lowestCommonAncestor(root.left, p, q);
   } else if (p.val > root.val && q.val > root.val) {
@@ -54,4 +54,29 @@ var lowestCommonAncestor = function (root, p, q) {
   } else {
     return root;
   }
+};
+
+// Iterative solution
+// TC - O(n)
+// SC - O(1)
+var lowestCommonAncestor = function (root, p, q) {
+  let curr = root;
+
+  while (curr) {
+    // If both p and q are smaller, LCA must be in left subtree
+    if (curr.val > p.val && curr.val > q.val) {
+      curr = curr.left;
+    }
+    // If both p and q are greater, LCA must be in right subtree
+    else if (curr.val < p.val && curr.val < q.val) {
+      curr = curr.right;
+    }
+    // Otherwise, current node is the split point
+    // So this is the lowest common ancestor
+    else {
+      return curr;
+    }
+  }
+
+  return null;
 };
