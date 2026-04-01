@@ -71,6 +71,36 @@ var levelOrder2 = function (root) {
   return ans;
 };
 
+// Iterative way
+// If you want to avoid shift() operation as it is costly in JS
+// TC - O(n)
+// SC - O(n)
+var levelOrder3 = function (root) {
+  if (!root) return [];
+
+  let queue = [root];
+  let result = [];
+  let front = 0;
+
+  while (front < queue.length) {
+    let levelArr = [];
+    let levelSize = queue.length - front;
+
+    for (let i = 0; i < levelSize; i++) {
+      let curr = queue[front++];
+
+      curr.left && queue.push(curr.left);
+      curr.right && queue.push(curr.right);
+
+      levelArr.push(curr.val);
+    }
+
+    result.push(levelArr);
+  }
+
+  return result;
+};
+
 /**
  * @param {TreeNode} root
  * @return {number[][]}
