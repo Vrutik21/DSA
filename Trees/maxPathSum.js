@@ -39,7 +39,7 @@ so we ignore it by using Math.max(0, subtreeGain).
 */
 
 // TC - O(n)
-// SC - O(n)
+// SC - O(h)
 var maxPathSum = function (root) {
   let best = -Infinity;
 
@@ -51,13 +51,15 @@ var maxPathSum = function (root) {
     let leftGain = Math.max(0, checkMax(curr.left));
     let rightGain = Math.max(0, checkMax(curr.right));
 
-    // Best path sum that passes through current node and can use BOTH sides
+    // Path that uses current node as the "turning point"
+    // It may take contribution from both left and right
     const pathThroughCurr = curr.val + leftGain + rightGain;
 
     // Update global best answer
     best = Math.max(best, pathThroughCurr);
 
-    // Return the best gain that can be extended to parent (ONLY one side)
+    // Return the best single-side path upward
+    // Parent cannot take both sides from this node, otherwise path would branch
     return curr.val + Math.max(leftGain, rightGain);
   }
 
