@@ -5,7 +5,7 @@
  * @param {string} word
  * @return {boolean}
  */
-// TC - O(m * n * 4*L) exponential
+// TC - O(m * n * 4^L) exponential
 // where m = number of rows; n = number of columns; L = length of word
 // From each cell, we can explore up to 4 directions for each character of the word so it is 4 * L.
 // SC - O(L)
@@ -79,7 +79,7 @@ var exist1 = function (board, word) {
  * @param {string} word
  * @return {boolean}
  */
-// Worst-case TC - O(m * n * 4^L)
+// Worst-case TC - O(m * n * 4^L) still exponential but faster in practice
 // Practical TC - faster because of pruning
 // SC - O(L)
 var exist = function (board, word) {
