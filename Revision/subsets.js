@@ -7,9 +7,6 @@
 // TC - O(n * 2^n)
 // SC - O(n) auxiliary recursion space
 // Output space - O(n * 2^n)
-
-// Example - [1,2,3]
-// Output = []
 var subsets = function (nums) {
   let ans = [];
 
