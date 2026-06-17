@@ -4,7 +4,7 @@
  * @param {string} s
  * @return {string}
  */
-// TC - O(N∗M)
+// TC - O(N+M)
 // SC - O(N + output len)
 var decodeString = function (s) {
   let stack = [];
