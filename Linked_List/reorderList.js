@@ -11,7 +11,7 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-//  TC - O(n)
+// TC - O(n)
 // SC - O(1)
 var reorderList = function (head) {
   if (!head || !head.next) return;
