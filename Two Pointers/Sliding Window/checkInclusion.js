@@ -1,4 +1,5 @@
-// 567
+// 567 Permutation in String
+
 /**
  * @param {string} s1
  * @param {string} s2
@@ -76,39 +77,50 @@ var checkInclusion1 = function (s1, s2) {
  * @param {string} s2
  * @return {boolean}
  */
+// TC - O(n)
+// SC - O(1)
 var checkInclusion = function (s1, s2) {
-  // Akshay's solution
-  // TC - O(n)
-  // SC - (1)
-  let HashS = Array(26).fill(0);
-  let HashW = Array(26).fill(0);
-  let window_len = s1.length;
+  if (s1.length > s2.length) return false;
 
-  for (let i = 0; i < window_len; i++) {
-    ++HashS[s1.charCodeAt(i) - 97];
-    ++HashW[s2.charCodeAt(i) - 97];
+  let hashStr = new Array(26).fill(0);
+  let hashWin = new Array(26).fill(0);
+
+  let windowLen = s1.length;
+
+  // Build frequency map for s1 and first window of s2
+  for (let i = 0; i < windowLen; i++) {
+    hashStr[s1.charCodeAt(i) - 97]++;
+    hashWin[s2.charCodeAt(i) - 97]++;
   }
 
-  let i = 0;
-  let j = window_len - 1;
+  let left = 0;
+  let right = windowLen - 1;
 
-  while (j < s2.length) {
-    if (isHashSame(HashS, HashW)) {
+  while (right < s2.length) {
+    // If both frequency arrays match, current window is a permutation
+    if (isHashSame(hashStr, hashWin)) {
       return true;
-    } else {
-      --HashW[s2.charCodeAt(i) - 97];
-      ++i;
-      ++j;
-      ++HashW[s2.charCodeAt(j) - 97];
+    }
+
+    // Remove the left character from current window
+    hashWin[s2.charCodeAt(left) - 97]--;
+    left++;
+
+    // Move right pointer to include next character
+    right++;
+
+    // Add new right character only if it exists
+    if (right < s2.length) {
+      hashWin[s2.charCodeAt(right) - 97]++;
     }
   }
 
   return false;
 };
 
-var isHashSame = function (HashS, HashW) {
+var isHashSame = function (hashStr, hashWin) {
   for (let i = 0; i < 26; i++) {
-    if (HashS[i] !== HashW[i]) {
+    if (hashStr[i] !== hashWin[i]) {
       return false;
     }
   }
