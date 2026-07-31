@@ -16,22 +16,24 @@
 // TC - O(n)
 // SC - O(h)
 var isValidBST1 = function (root) {
-  function checkBST(curr, low, high) {
-    // Empty tree/subtree is valid
-    if (!curr) return true;
+  function checkBST(node, low, high) {
+    // An empty tree is valid.
+    if (node === null) {
+      return true;
+    }
 
-    // Current node must stay strictly inside the valid range
+    // The node must be strictly between low and high.
     if (
-      (high !== null && curr.val >= high) ||
-      (low !== null && curr.val <= low)
+      (low !== null && node.val <= low) ||
+      (high !== null && node.val >= high)
     ) {
       return false;
     }
 
-    // Left subtree: values must be < curr.val
-    // Right subtree: values must be > curr.val
+    // Left subtree values must be smaller than node.val.
+    // Right subtree values must be greater than node.val.
     return (
-      checkBST(curr.left, low, curr.val) && checkBST(curr.right, curr.val, high)
+      checkBST(node.left, low, node.val) && checkBST(node.right, node.val, high)
     );
   }
 
@@ -44,25 +46,29 @@ var isValidBST1 = function (root) {
 // TC - O(n)
 // SC - O(h)
 var isValidBST = function (root) {
-  let stack = [];
-  let curr = root;
-  let prev = null;
+  const stack = [];
+  let current = root;
+  let previousValue = null;
 
-  while (curr || stack.length > 0) {
-    while (curr) {
-      stack.push(curr);
-      curr = curr.left;
+  while (current !== null || stack.length > 0) {
+    // Go as far left as possible.
+    while (current !== null) {
+      stack.push(current);
+      current = current.left;
     }
 
-    curr = stack.pop();
+    // Process the next node in inorder traversal.
+    current = stack.pop();
 
-    if (prev !== null && curr.val <= prev) {
+    // Values must be strictly increasing.
+    if (previousValue !== null && current.val <= previousValue) {
       return false;
     }
 
-    prev = curr.val;
+    previousValue = current.val;
 
-    curr = curr.right;
+    // Continue with the right subtree.
+    current = current.right;
   }
 
   return true;
