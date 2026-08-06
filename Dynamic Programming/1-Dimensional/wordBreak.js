@@ -65,7 +65,7 @@ var wordBreak1 = function (s, wordDict) {
 //
 // SC - O(N + K)
 // where N = dp array size, K = total characters stored in wordDict/wordSet.
-var wordBreak = function (s, wordDict) {
+wordBreak = function (s, wordDict) {
   let wordSet = new Set(wordDict);
 
   // Find the maximum word length in wordDict.
