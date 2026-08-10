@@ -6,7 +6,7 @@
  */
 // TC - O(n)
 // SC - O(n)
-var longestConsecutive = function (nums) {
+longestConsecutive = function (nums) {
   const store = new Set(nums);
   let best = 0;
 
