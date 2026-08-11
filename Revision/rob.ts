@@ -1,12 +1,8 @@
 // 198. House Robber
 
-/**
- * @param {number[]} nums
- * @return {number}
- */
 // TC - O(n)
 // SC - O(1)
-rob = function (nums) {
+function rob(nums: number[]): number {
   // result of 2 houses before current house
   let bestBeforePreviousHouse = 0;
 
@@ -31,4 +27,4 @@ rob = function (nums) {
   }
 
   return bestBeforeCurrentHouse;
-};
+}
