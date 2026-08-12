@@ -1,44 +1,39 @@
 // 213. House Robber II
 
-/**
- * @param {number[]} nums
- * @return {number}
- */
 // TC - O(n)
 // SC - O(1)
-rob = function (nums) {
+function rob(nums: number[]): number {
   if (nums.length === 1) return nums[0];
 
-  // Since houses are circular, we cannot take both first and last house.
-  // So we try two cases:
-  // 1. Rob houses from index 1 to n - 1
-  // 2. Rob houses from index 0 to n - 2
   let bestExcludingFirstHouse = robLinear(nums, 1, nums.length - 1);
   let bestExcludingLastHouse = robLinear(nums, 0, nums.length - 2);
 
   return Math.max(bestExcludingFirstHouse, bestExcludingLastHouse);
-};
+}
 
-robLinear = function (nums, start, end) {
-  // Best answer from two houses before current house
+function robLinear(nums: number[], start: number, end: number) {
+  // result of 2 houses before current house
   let bestBeforePreviousHouse = 0;
 
-  // Best answer from one house before current house
+  // result of 1 house before current house
   let bestBeforeCurrentHouse = 0;
 
   for (let i = start; i <= end; i++) {
-    // If we rob current house, we cannot rob previous house
+    // Option 1: Rob current house
+    // Then we must add nums[i] to the best amount before previous house
     let robCurrentHouse = nums[i] + bestBeforePreviousHouse;
 
-    // If we skip current house, best remains same as previous house
+    // Option 2: Skip current house
+    // Then best amount remains same as before current house
     let skipCurrentHouse = bestBeforeCurrentHouse;
 
+    // Best answer after deciding for current house
     let bestAtCurrentHouse = Math.max(robCurrentHouse, skipCurrentHouse);
 
-    // Move both variables forward
+    // Move variables forward for next house
     bestBeforePreviousHouse = bestBeforeCurrentHouse;
     bestBeforeCurrentHouse = bestAtCurrentHouse;
   }
 
   return bestBeforeCurrentHouse;
-};
+}

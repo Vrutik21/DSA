@@ -6,7 +6,7 @@
  */
 // TC - O(n)
 // SC - O(1)
-var rob = function (nums) {
+rob = function (nums) {
   if (nums.length === 1) return nums[0];
 
   // Case 1:
