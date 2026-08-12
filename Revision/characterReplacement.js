@@ -17,7 +17,7 @@
  */
 // TC - O(n)
 // SC - O(1)
-var characterReplacement = function (s, k) {
+characterReplacement = function (s, k) {
   let left = 0;
   let maxFreq = 0;
   let longest = 0;
