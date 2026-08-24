@@ -5,33 +5,36 @@
  * @return {boolean}
  */
 // TC - O(n)
-// SC - O(1)
-// Using regex
-var isPalindrome = function (s) {
+// SC - O(1) auxiliary space
+// Using Two pointer and regex
+function isPalindrome(s: string): boolean {
   s = s.toLowerCase();
+
   let left = 0;
   let right = s.length - 1;
 
-  while (left <= right) {
-    if (!s[left].match(/[a-z0-9]/)) {
+  while (left < right) {
+    // Skip invalid characters from the left
+    while (left < right && !/[a-z0-9]/.test(s[left])) {
       left++;
-      continue;
     }
 
-    if (!s[right].match(/[a-z0-9]/)) {
+    // Skip invalid characters from the right
+    while (left < right && !/[a-z0-9]/.test(s[right])) {
       right--;
-      continue;
     }
 
+    // Characters don't match
     if (s[left] !== s[right]) {
       return false;
     }
+
     left++;
     right--;
   }
 
   return true;
-};
+}
 
 /**
  * @param {string} s
@@ -40,14 +43,14 @@ var isPalindrome = function (s) {
 // TC - O(n)
 // SC - O(1)
 // Using the ASCII/Unicode
-var isPalindrome = function (s) {
+function isPalindrome1(s: string): boolean {
   s = s.toLowerCase();
 
   let i = 0;
   let j = s.length - 1;
 
-  function isAlphaNumeric(ch) {
-    const code = ch.charCodeAt();
+  function isAlphaNumeric(ch: string): boolean {
+    const code = ch.charCodeAt(0);
 
     // 0-9
     if (code >= 48 && code <= 57) return true;
@@ -79,7 +82,7 @@ var isPalindrome = function (s) {
   }
 
   return true;
-};
+}
 
 console.log(isPalindrome("A man, a plan, a canal: Panama"));
 console.log(isPalindrome("race a car"));
