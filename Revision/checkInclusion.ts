@@ -1,17 +1,12 @@
 // 567. Permutation in String
 
-/**
- * @param {string} s1
- * @param {string} s2
- * @return {boolean}
- */
-// TC - O(n)
-// SC - O(1)
-var checkInclusion = function (s1, s2) {
+// TC : O(n)
+// SC : O(1)
+function checkInclusion(s1: string, s2: string): boolean {
   if (s1.length > s2.length) return false;
 
-  let hashStr = new Array(26).fill(0);
-  let hashWin = new Array(26).fill(0);
+  let hashStr: number[] = new Array(26).fill(0);
+  let hashWin: number[] = new Array(26).fill(0);
 
   let windowLen = s1.length;
 
@@ -44,14 +39,12 @@ var checkInclusion = function (s1, s2) {
   }
 
   return false;
-};
+}
 
-var isHashSame = function (hashStr, hashWin) {
+function isHashSame(hashStr: number[], hashWin: number[]) {
   for (let i = 0; i < 26; i++) {
-    if (hashStr[i] !== hashWin[i]) {
-      return false;
-    }
+    if (hashStr[i] !== hashWin[i]) return false;
   }
 
   return true;
-};
+}
